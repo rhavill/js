@@ -134,9 +134,6 @@ StretchCell.prototype.minHeight = function() {
   return innerHeight > this.height ? innerHeight : this.height;
 };
 StretchCell.prototype.draw = function(width, height) {
-  var stretchWidth = width > this.width ? width : this.width;
-  var stretchHeight = height > this.height ? height : this.height;
-  return this.inner.draw(stretchWidth, stretchHeight);
+  return this.inner.draw(width, height);
 };
-
 console.log(drawTable(dataTable(MOUNTAINS)));
