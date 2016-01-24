@@ -1,3 +1,5 @@
+'use strict';
+
 /* This example was copied from 
 https://medium.com/sons-of-javascript/javascript-an-introduction-to-es6-1819d0d89a0f
 */

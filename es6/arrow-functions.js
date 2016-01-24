@@ -1,3 +1,5 @@
+'use strict';
+
 let cube = x => x * x * x;
 let plus = (x, y) => x + y;
 let three = () => 3;

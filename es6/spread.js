@@ -1,3 +1,5 @@
+'use strict';
+
 function plus(x, y) {
 	return x + y;
 }

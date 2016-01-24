@@ -1,3 +1,5 @@
+'use strict';
+
 /*
  * Examples copied from https://leanpub.com/understandinges6/read/#leanpub-auto-symbols
  */

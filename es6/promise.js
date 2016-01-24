@@ -1,3 +1,5 @@
+'use strict';
+
 var promise = new Promise(
 	function (resolve, reject) {
 	    var r = Math.random();

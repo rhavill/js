@@ -1,3 +1,4 @@
+'use strict';
 
 /* this example was copied from http://davidwalsh.name/es6-generators */
 function *foo() {
