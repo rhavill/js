@@ -1,6 +1,6 @@
 'use strict';
 
-function echo(text='') {
+function echo(text='default text') {
     console.log(text);
 }
 
