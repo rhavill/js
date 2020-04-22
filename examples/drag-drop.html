@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Drag and Drop</title>
+  <style>
+    #circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      font-size: 20px;
+      color: #fff;
+      line-height: 100px;
+      text-align: center;
+      background: #000
+    }
+  </style>
+</head>
+
+<body>
+  <p>This example was copied from <a href="https://javascript.info/mouse-drag-and-drop">javascript.info</a>.
+  Click and drag the circle.</p>
+  <div id="circle"></div>
+  <script type="text/javascript">
+    const circle = document.getElementById('circle');
+    circle.addEventListener('mousedown', e => {
+      // (1) start the process
+
+      // This allows the mouse to remain over the part of the circle that is
+      // clicked, instead of always having the mouse over the center of the
+      // circle.
+      let shiftX = event.clientX - circle.getBoundingClientRect().left;
+      let shiftY = event.clientY - circle.getBoundingClientRect().top;
+
+
+      // (2) prepare to moving: make absolute and on top by z-index
+      circle.style.position = 'absolute';
+      circle.style.zIndex = 1000;
+      // move it out of any current parents directly into body
+      // to make it positioned relative to the body
+      document.body.append(circle);
+      // ...and put that absolutely positioned circle under the pointer
+
+      moveAt(event.pageX, event.pageY);
+
+      // centers the circle at (pageX, pageY) coordinates
+      function moveAt(pageX, pageY) {
+        circle.style.left = pageX - shiftX + 'px';
+        circle.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      }
+
+      // (3) move the circle on mousemove
+      document.addEventListener('mousemove', onMouseMove);
+
+      // (4) drop the circle, remove unneeded handlers
+      circle.onmouseup = function() {
+        document.removeEventListener('mousemove', onMouseMove);
+        circle.onmouseup = null;
+      };
+
+      /*
+       On the beginning of the drag’n’drop, the ball “forks”: we start dragging 
+       its “clone”. This ondragstart function fixes the problem.
+       */
+      circle.ondragstart = function() {
+        return false;
+      };
+
+    });
+  </script>
+</body>
+</html>
