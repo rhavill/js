@@ -13,7 +13,7 @@
       color: #fff;
       line-height: 100px;
       text-align: center;
-      background: #000
+      background: url('small.jpg');
     }
   </style>
 </head>
@@ -22,6 +22,7 @@
   <p>This example was copied from <a href="https://javascript.info/mouse-drag-and-drop">javascript.info</a>.
   Click and drag the circle.</p>
   <div id="circle"></div>
+  <div style="background-color: black; opacity: 0.2; position: absolute; top: 236px; left: 208px; width: 29px; height: 33px; padding: 0px; border-width: 1px; z-index: 3;"></div>
   <script type="text/javascript">
     const circle = document.getElementById('circle');
     circle.addEventListener('mousedown', e => {
